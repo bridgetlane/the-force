@@ -1,0 +1,192 @@
+<!doctype html>
+
+<!--
+@author Bridget Lane
+@url mason.gmu.edu/~blane3/theforce/usetheforce.html
+@lastupdated 2014-04-26
+@version 1.0.0
+@comments start up the force
+-->
+
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The iRobot Force | use the force</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="normalize" href="css/normalize.css" />
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+  </head>
+  <body>
+   
+    <div class="row">
+        <div class="large-12 columns">
+            <h1 id="logo_small"><a href="index.html" style="text-decoration: none; color: white;" Title="home">the force</a></h1>
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>
+    <div id="SkypeButton_Call_bigspender4812_1">
+      <script type="text/javascript">
+        Skype.ui({
+          "name": "call",
+          "element": "SkypeButton_Call_bigspender4812_1",
+          "participants": ["bigspender4812"],
+          "imageColor": "white",
+          "imageSize": 32
+        });
+      </script>
+    </div>
+    
+    <div class="row">
+        <div class="large-8 large-centered columns">
+            <ul class="button-group even-4">
+                <li><button onmousedown="forwards()" onmouseup="removeForward()" style="font-family: StarJedi;">Forward</button></li>
+                <li><button onmousedown="turnRight()" onmouseup="removeRight()" style="font-family: StarJedi;">Right</button></li>
+                <li><button onmousedown="turnLeft()" onmouseup="removeLeft()" style="font-family: StarJedi;">Left</button></li>
+                <li><button onmousedown="backwards()" onmouseup="removeBackward()" style="font-family: StarJedi;">Backward</button></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div style="float:left; padding-left: 8%; padding-top:1%; color: white;">
+        <p>Speed</p>
+    </div>
+    <div class="row">
+    <div class="small-10 medium-11 columns" style="color: white; padding-left:10%;">
+        <div class="range-slider" data-slider data-options="start:0; end:25; display_selector:#sliderOutput1;">
+          <span class="range-slider-handle"></span>
+          <span class="range-slider-active-segment"></span>
+        </div>
+    </div>
+    <div class="small-2 medium-1 columns" style="color: white;">
+          <span id="sliderOutput1" style="display: block;margin-top: 17px;"></span>
+    </div>
+    </div>
+    
+    <div style="float:left; padding-left: 5%; padding-top:1%; color: white;">
+        <p>Turn Speed</p>
+    </div>
+    <div class="row">
+    <div class="small-10 medium-11 columns" style="color: white; padding-left:10%;">
+        <div class="range-slider" data-slider data-options="start:0; end:25; display_selector:#sliderOutput2;">
+          <span class="range-slider-handle"></span>
+          <span class="range-slider-active-segment"></span>
+        </div>
+    </div>
+    <div class="small-2 medium-1 columns" style="color: white;">
+          <span id="sliderOutput2" style="display: block;margin-top: 17px;"></span>
+    </div>
+    </div>
+    
+		<script>
+            var speed = 12;
+            var turnSpeed = 12;
+            
+            $('[data-slider]').on('change', function(){
+				speed = parseInt($('[data-slider]')[0].getAttribute('data-slider'));
+				turnSpeed = parseInt($('[data-slider]')[1].getAttribute('data-slider'));
+			});
+            
+			var socket = io.connect();
+			var forward = false;
+			var backward = false;
+			var right = false;
+			var left = false;
+			
+			document.onkeydown = function(event) {
+				event = event || window.event;
+				
+				var e = event.keyCode;
+				
+				if(e == 87)
+					forwards();
+					
+				if(e == 83)
+					backwards();
+				
+				if(e == 65)
+					turnLeft();
+					
+				if(e == 68)
+					turnRight();
+			}
+			
+			document.onkeyup = function(event) {
+				event = event || window.event;
+				
+				var e = event.keyCode;
+				
+				if(e == 87)
+					removeForward();
+				if(e == 83)
+					removeBackward();
+				if(e == 65)
+					removeLeft();
+				if(e == 68)
+					removeRight();
+			}
+			
+			function forwards(){
+				forward = true;
+				sendSpeed();
+			}
+			function backwards(){
+				backward = true;
+				sendSpeed();
+			}
+			function turnRight(){
+				right = true;
+				sendSpeed();
+			}
+			function turnLeft(){
+				left = true;
+				sendSpeed();
+			}
+			function removeForward(){
+				forward = false;
+				sendSpeed();
+			}
+			function removeBackward(){
+				backward = false;
+				sendSpeed();
+			}
+			function removeRight(){
+				right = false;
+				sendSpeed();
+			}
+			function removeLeft(){
+				left = false;
+				sendSpeed();
+			}
+			
+			function sendSpeed(){
+				var vertical = 0;
+				var horizontal = 0;
+				if(right && left)
+					horizontal = 0;
+				else if(right)
+					horizontal = turnSpeed;
+				else if(left)
+					horizontal = -turnSpeed;
+					
+				if(forward && backward)
+					vertical = 0;
+				else if(forward)
+					vertical = speed;
+				else if(backward)
+					vertical = -speed;
+					
+				socket.emit('updateSpeed', vertical, horizontal);
+			}
+			
+		</script>
+    
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>
