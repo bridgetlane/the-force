@@ -3,7 +3,7 @@
 <!--
 @author Bridget Lane
 @url mason.gmu.edu/~blane3/theforce/usetheforce.html
-@lastupdated 2014-04-26
+@lastupdated 2014-04-27
 @version 1.0.0
 @comments start up the force
 -->
@@ -50,44 +50,43 @@
         </div>
     </div>
     
-    <div style="float:left; padding-left: 8%; padding-top:1%; color: white;">
-        <p>Speed</p>
-    </div>
     <div class="row">
-    <div class="small-10 medium-11 columns" style="color: white; padding-left:10%;">
-        <div class="range-slider" data-slider data-options="start:0; end:25; display_selector:#sliderOutput1;">
-          <span class="range-slider-handle"></span>
-          <span class="range-slider-active-segment"></span>
-        </div>
-    </div>
-    <div class="small-2 medium-1 columns" style="color: white;">
-          <span id="sliderOutput1" style="display: block;margin-top: 17px;"></span>
-    </div>
-    </div>
+    <a href="#" data-dropdown="drop" class="small secondary round button dropdown" style="font-family:StarJedi;">Speed</a><br>
+    <ul id="drop" data-dropdown-content class="f-dropdown">
+        <li onmousedown="speedChange(10)"><a href="#">10</a></li>
+        <li onmousedown="speedChange(12)"><a href="#">12</a></li>
+        <li onmousedown="speedChange(14)"><a href="#">14</a></li>
+        <li onmousedown="speedChange(16)"><a href="#">16</a></li>
+        <li onmousedown="speedChange(18)"><a href="#">18</a></li>
+        <li onmousedown="speedChange(20)"><a href="#">20</a></li>
+        <li onmousedown="speedChange(22)"><a href="#">22</a></li>
+        <li onmousedown="speedChange(24)"><a href="#">24</a></li>
+    </ul>
     
-    <div style="float:left; padding-left: 5%; padding-top:1%; color: white;">
-        <p>Turn Speed</p>
-    </div>
-    <div class="row">
-    <div class="small-10 medium-11 columns" style="color: white; padding-left:10%;">
-        <div class="range-slider" data-slider data-options="start:0; end:25; display_selector:#sliderOutput2;">
-          <span class="range-slider-handle"></span>
-          <span class="range-slider-active-segment"></span>
-        </div>
-    </div>
-    <div class="small-2 medium-1 columns" style="color: white;">
-          <span id="sliderOutput2" style="display: block;margin-top: 17px;"></span>
-    </div>
+    <a href="#" data-dropdown="drop" class="small secondary round button dropdown" style="font-family:StarJedi;">Turn Speed</a><br>
+    <ul id="drop" data-dropdown-content class="f-dropdown">
+        <li onmousedown="turnSpeedChange(10)"><a href="#">10</a></li>
+        <li onmousedown="turnSpeedChange(12)"><a href="#">12</a></li>
+        <li onmousedown="turnSpeedChange(14)"><a href="#">14</a></li>
+        <li onmousedown="turnSpeedChange(16)"><a href="#">16</a></li>
+        <li onmousedown="turnSpeedChange(18)"><a href="#">18</a></li>
+        <li onmousedown="turnSpeedChange(20)"><a href="#">20</a></li>
+        <li onmousedown="turnSpeedChange(22)"><a href="#">22</a></li>
+        <li onmousedown="turnSpeedChange(24)"><a href="#">24</a></li>
+    </ul>
     </div>
     
 		<script>
             var speed = 12;
             var turnSpeed = 12;
             
-            $('[data-slider]').on('change', function(){
-				speed = parseInt($('[data-slider]')[0].getAttribute('data-slider'));
-				turnSpeed = parseInt($('[data-slider]')[1].getAttribute('data-slider'));
-			});
+            function speedChange(num) {
+                speed = num;
+            }
+            
+            function turnSpeedChange(num) {
+                turnSpeed = num;
+            }
             
 			var socket = io.connect();
 			var forward = false;
