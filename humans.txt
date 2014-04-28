@@ -1,5 +1,5 @@
 Yuncheng He, Songyue Huang, Bridget Lane, Nathan Murray, John Paschal
-[GITHUB LINK]
+https://github.com/bridgetlane/the-force
 Farifax, Virginia
 George Mason University
 
@@ -14,4 +14,4 @@ Theme inspired by the Star Wars films
 
 Standards: HTML5, CSS3
 Components: Modernizr, jQuery, Node for JS, etc.
-Software: Visual C# for Microsoft Visual Studio, Git
+Software: Git

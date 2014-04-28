@@ -12,11 +12,13 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The iRobot Force | use the force</title>
+    <title>The iRobot Force: use the force</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <link rel="normalize" href="css/normalize.css" />
     <script src="js/vendor/modernizr.js"></script>
     <script src="socket.io/socket.io.js"></script>
+	<script src="js/vendor/jquery.js"></script>
+	<script src="js/foundation.min.js"></script>
   </head>
   <body>
    
@@ -39,6 +41,37 @@
       </script>
     </div>
     
+    <div style="float:left; padding-left: 8%; padding-top:1%; color: white;">
+        <p>Speed</p>
+    </div>
+    <div class="row">
+    <div class="small-8 medium-9 columns">
+    <div class="range-slider" data-slider data-options="start: 0; end: 25; display_selector:#sliderOutput1;" style="display: block;margin-top: 17px;">
+      <span class="range-slider-handle"></span>
+      <span class="range-slider-active-segment"></span>
+    </div>
+    </div>
+    <div class="small-2 medium-1 columns" style="color: white;">
+      <span id="sliderOutput1" style="display: block;margin-top: 17px;"></span>
+    </div>
+    </div>
+    
+    <div style="float:left; padding-left: 5%; padding-top:1%; color: white;">
+        <p>Turn Speed</p>
+    </div>
+    <div class="row">
+    <div class="small-8 medium-9 columns">
+    <div class="range-slider" data-slider data-options="start: 0; end: 25; display_selector:#sliderOutput2;">
+      <span class="range-slider-handle"></span>
+      <span class="range-slider-active-segment"></span>
+	  <input type="hidden">
+    </div>
+    </div>
+    <div class="small-2 medium-1 columns" style="color: white;">
+      <span id="sliderOutput2" style="display: block;margin-top: 17px;"></span>
+    </div>
+    </div>
+    
     <div class="row">
         <div class="large-8 large-centered columns">
             <ul class="button-group even-4">
@@ -50,44 +83,29 @@
         </div>
     </div>
     
-    <div class="row">
-    <a href="#" data-dropdown="drop" class="small secondary round button dropdown" style="font-family:StarJedi;">Speed</a><br>
-    <ul id="drop" data-dropdown-content class="f-dropdown">
-        <li onmousedown="speedChange(10)"><a href="#">10</a></li>
-        <li onmousedown="speedChange(12)"><a href="#">12</a></li>
-        <li onmousedown="speedChange(14)"><a href="#">14</a></li>
-        <li onmousedown="speedChange(16)"><a href="#">16</a></li>
-        <li onmousedown="speedChange(18)"><a href="#">18</a></li>
-        <li onmousedown="speedChange(20)"><a href="#">20</a></li>
-        <li onmousedown="speedChange(22)"><a href="#">22</a></li>
-        <li onmousedown="speedChange(24)"><a href="#">24</a></li>
-    </ul>
-    
-    <a href="#" data-dropdown="drop" class="small secondary round button dropdown" style="font-family:StarJedi;">Turn Speed</a><br>
-    <ul id="drop" data-dropdown-content class="f-dropdown">
-        <li onmousedown="turnSpeedChange(10)"><a href="#">10</a></li>
-        <li onmousedown="turnSpeedChange(12)"><a href="#">12</a></li>
-        <li onmousedown="turnSpeedChange(14)"><a href="#">14</a></li>
-        <li onmousedown="turnSpeedChange(16)"><a href="#">16</a></li>
-        <li onmousedown="turnSpeedChange(18)"><a href="#">18</a></li>
-        <li onmousedown="turnSpeedChange(20)"><a href="#">20</a></li>
-        <li onmousedown="turnSpeedChange(22)"><a href="#">22</a></li>
-        <li onmousedown="turnSpeedChange(24)"><a href="#">24</a></li>
-    </ul>
-    </div>
-    
+<script>
+			$(document).foundation();
+		</script>
 		<script>
             var speed = 12;
+            //$('sliderOutput1').foundation('sliderOutput1', 'set_value', speed);
+          /*  $('[data-slider]').on('change', function(){
+              var tempSpeed = $('#sliderOutput1').attr('data-slider');
+			  speed = parseInt(tempSpeed);
+            });*/
             var turnSpeed = 12;
-            
-            function speedChange(num) {
-                speed = num;
-            }
-            
-            function turnSpeedChange(num) {
-                turnSpeed = num;
-            }
-            
+            //$('sliderOutput2').foundation('sliderOutput2', 'set_value', turnSpeed);
+          /*  $('[data-slider]').on('change', function(){
+              var tempTurnSpeed = $('#sliderOutput2').attr('data-slider');
+			  turnSpeed = parseInt(tempTurnSpeed);
+			  console.log($('#sliderOutput2').attr('data-slider'));
+            });*/      
+			
+			$('[data-slider]').on('change', function(){
+				speed = parseInt($('[data-slider]')[0].getAttribute('data-slider'));
+				turnSpeed = parseInt($('[data-slider]')[1].getAttribute('data-slider'));
+			});
+			
 			var socket = io.connect();
 			var forward = false;
 			var backward = false;
@@ -166,9 +184,9 @@
 				if(right && left)
 					horizontal = 0;
 				else if(right)
-					horizontal = turnSpeed;
-				else if(left)
 					horizontal = -turnSpeed;
+				else if(left)
+					horizontal = turnSpeed;
 					
 				if(forward && backward)
 					vertical = 0;
@@ -181,11 +199,5 @@
 			}
 			
 		</script>
-    
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/foundation.min.js"></script>
-    <script>
-      $(document).foundation();
-    </script>
   </body>
 </html>
