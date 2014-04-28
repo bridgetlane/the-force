@@ -1,7 +1,7 @@
 /*
 @author Bridget Lane
 @url n/a
-@lastupdated 2014-04-27
+@lastupdated 2014-04-28
 @version 1.0.0
 @comments css force stylesheet; edits to the original code by ZURB (see below)
 */
@@ -11,9 +11,7 @@
 @font-face { font-family: StarJedi-outline; src: url('../fonts/starjedi/Starjout.ttf'); }
 
 body {
-    font-family: "Franklin Gothic Medium", Tahoma, Impact, "Arial Narrow", Arial; 
-    text-align: center;
-    padding: 5%;
+    font-family: "Franklin Gothic Medium", Tahoma, Impact, "Arial Narrow", Arial;
 }
 #logo {
     font-family: StarJedi-hollow, StarJedi, StarJedi-outline, "Franklin Gothic Medium", Tahoma, Impact, "Arial Narrow", Arial;

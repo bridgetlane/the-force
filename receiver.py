@@ -1,3 +1,9 @@
+# @author Nathan Murray
+# @url mason.gmu.edu/~blane3/theforce/becomeijedi.html
+# @lastupdated 2014-04-28
+# @version 1.0.0
+# @comments receiver program
+
 #For python 2.7
 import urllib
 import socket

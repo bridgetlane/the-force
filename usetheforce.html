@@ -3,7 +3,7 @@
 <!--
 @author Bridget Lane
 @url mason.gmu.edu/~blane3/theforce/usetheforce.html
-@lastupdated 2014-04-27
+@lastupdated 2014-04-28
 @version 1.0.0
 @comments start up the force
 -->
@@ -29,7 +29,7 @@
     </div>
     
     <script type="text/javascript" src="http://www.skypeassets.com/i/scom/js/skype-uri.js"></script>
-    <div id="SkypeButton_Call_bigspender4812_1">
+    <div id="SkypeButton_Call_bigspender4812_1" style="text-align: center;">
       <script type="text/javascript">
         Skype.ui({
           "name": "call",
@@ -41,40 +41,9 @@
       </script>
     </div>
     
-    <div style="float:left; padding-left: 8%; padding-top:1%; color: white;">
-        <p>Speed</p>
-    </div>
-    <div class="row">
-    <div class="small-8 medium-9 columns">
-    <div class="range-slider" data-slider data-options="start: 0; end: 25; display_selector:#sliderOutput1;" style="display: block;margin-top: 17px;">
-      <span class="range-slider-handle"></span>
-      <span class="range-slider-active-segment"></span>
-    </div>
-    </div>
-    <div class="small-2 medium-1 columns" style="color: white;">
-      <span id="sliderOutput1" style="display: block;margin-top: 17px;"></span>
-    </div>
-    </div>
-    
-    <div style="float:left; padding-left: 5%; padding-top:1%; color: white;">
-        <p>Turn Speed</p>
-    </div>
-    <div class="row">
-    <div class="small-8 medium-9 columns">
-    <div class="range-slider" data-slider data-options="start: 0; end: 25; display_selector:#sliderOutput2;">
-      <span class="range-slider-handle"></span>
-      <span class="range-slider-active-segment"></span>
-	  <input type="hidden">
-    </div>
-    </div>
-    <div class="small-2 medium-1 columns" style="color: white;">
-      <span id="sliderOutput2" style="display: block;margin-top: 17px;"></span>
-    </div>
-    </div>
-    
-    <div class="row">
+    <div class="row" style="padding-bottom: 5%;">
         <div class="large-8 large-centered columns">
-            <ul class="button-group even-4">
+            <ul class="button-group round even-4">
                 <li><button onmousedown="forwards()" onmouseup="removeForward()" style="font-family: StarJedi;">Forward</button></li>
                 <li><button onmousedown="turnRight()" onmouseup="removeRight()" style="font-family: StarJedi;">Right</button></li>
                 <li><button onmousedown="turnLeft()" onmouseup="removeLeft()" style="font-family: StarJedi;">Left</button></li>
@@ -83,6 +52,33 @@
         </div>
     </div>
     
+    <div class="row">
+    <div style="color: white; display: inline-block; float:left; padding-top:2%;">
+      <span>Speed: </span>
+      <span id="sliderOutput1"></span>
+    </div>
+    <div class="small-8 medium-9 small-centered medium-centered columns">
+    <div class="range-slider" data-slider data-options="start: 0; end: 25; display_selector:#sliderOutput1;">
+      <span class="range-slider-handle"></span>
+      <span class="range-slider-active-segment"></span>
+    </div>
+    </div>
+    </div>
+    
+    <div class="row">
+    <div style="color: white; display: inline-block; float:left; padding-top:2%;">
+      <span>Turn Speed: </span>
+      <span id="sliderOutput2"></span>
+    </div>
+    <div class="small-8 medium-9 small-centered medium-centered columns">
+    <div class="range-slider" data-slider data-options="start: 0; end: 25; display_selector:#sliderOutput2;">
+      <span class="range-slider-handle"></span>
+      <span class="range-slider-active-segment"></span>
+	  <input type="hidden">
+    </div>
+    </div>
+    </div>
+
 <script>
 			$(document).foundation();
 		</script>
