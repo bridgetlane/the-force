@@ -1,13 +1,17 @@
 The Force
 =========
 
+The iRobot Force Beta (http://mason.gmu.edu/~blane3/theforce/) Release 1.0.0 for the iRobot Create (http://www.irobot.com/us/learn/Educators/Create.aspx)
+
 Controlling the iRobot Create Remotely from a Website using JavaScript
 
 CS 101 Project: Yuncheng He, Songyue Huang, Bridget Lane, Nathan Murray, John Paschal
 
+The iRobot Force is a simple web-based remote control for the iRobot Create that allows the user to control their iRobot from anywhere in the world with an internet connection.
+
 --------------------------------------------------------------------------------------------------------------------------
 
-The iRobot Force is a simple web-based remote control to control your iRobot Create that allows the user to control their iRobot from anywhere in the world with an internet connection. Thank you for your interest in our project. First, we’ll cover some fundamental assumptions:
+Thank you for your interest in our project. First, we’ll cover some fundamental assumptions:
 
 • You have an iRobot Create that is fully integrated with a laptop that has some form of camera
 
@@ -34,3 +38,33 @@ Here’s how to get started:
 --------------------------------------------------------------------------------------------------------------------------
 
 And you’re free to control your iRobot Create from any device!
+
+--------------------------------------------------------------------------------------------------------------------------
+
+LATEST VERSION
+
+Information of the latest release can be found at https://github.com/bridgetlane/the-force
+
+--------------------------------------------------------------------------------------------------------------------------
+
+DOCUMENTATION
+
+This documentation is current with the release listed on ln.1 of this document and currently only available via this GitHub repository.
+
+--------------------------------------------------------------------------------------------------------------------------
+
+INSTALLATION
+
+Currently specialized developer installation is available, steps listed above. Self-assembly required.
+
+--------------------------------------------------------------------------------------------------------------------------
+
+LICENSING
+
+Please see the file entitled LICENSE
+
+--------------------------------------------------------------------------------------------------------------------------
+
+SOFTWARE AND HARDWARE NOTICE
+
+This app is currently only made for the iRobot Create. More information can be found at http://www.irobot.com/us/learn/Educators/Create.aspx
