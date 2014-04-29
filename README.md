@@ -13,7 +13,7 @@ The iRobot Force is a simple web-based remote control to control your iRobot Cre
 
 •	You have a Skype account
 
-•	You have a server to host the website
+•	You have a server to host the website, set up with the code in the server folder: server.js
 
 •	You’ve read through “How to Become an iJedi” on the webpage, and have downloaded the receive file onto your camera-enabled laptop
 
