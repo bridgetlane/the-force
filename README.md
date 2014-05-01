@@ -1,4 +1,4 @@
-The Force
+[The Force](http://bridgetlane.github.io/the-force/)
 =========
 
 The iRobot Force Beta (http://mason.gmu.edu/~blane3/theforce/) Release 1.0.0 for the iRobot Create (http://www.irobot.com/us/learn/Educators/Create.aspx)
