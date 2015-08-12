@@ -1,7 +1,7 @@
-The Force
+[The Force](http://bridgetlane.com/the-force/)
 =========
 
-The iRobot Force Beta (http://mason.gmu.edu/~blane3/theforce/) Release 1.0.0 for the iRobot Create (http://www.irobot.com/us/learn/Educators/Create.aspx)
+The iRobot Force Beta (http://bridgetlane.com/the-force/) Release 1.0.0 for the iRobot Create (http://www.irobot.com/us/learn/Educators/Create.aspx)
 
 Controlling the iRobot Create Remotely from a Website using JavaScript
 
